@@ -15,5 +15,5 @@ jobs:
           with:
             context: .
             push: true
-            tags: ghcr.io/${{ steps.meta.outputs.tags }}/stock_peer:latest # Using tags from metadata-action
+            tags: ghcr.io/${{ github.actor }}/stock_peer:latest # Using tags from metadata-action
             #labels: ${{ steps.meta.outputs.labels }} # Using labels from metadata-action
