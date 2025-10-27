@@ -11,6 +11,7 @@ jobs:
             username: ${{ github.actor }}
             password: ${{ secrets.REPO_TOKEN }}
         - name: Build and push Docker image
+          uses: actions/checkout@v4
           uses: docker/build-push-action@v5
           with:
             context: .
