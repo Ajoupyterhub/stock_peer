@@ -10,8 +10,9 @@ jobs:
             registry: ghcr.io
             username: ${{ github.actor }}
             password: ${{ secrets.REPO_TOKEN }}
-        - name: Build and push Docker image
+        - name: checkout
           uses: actions/checkout@v4
+        - name: Build and push Docker image
           uses: docker/build-push-action@v5
           with:
             context: .
