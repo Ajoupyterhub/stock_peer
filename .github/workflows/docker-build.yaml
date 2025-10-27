@@ -1,0 +1,19 @@
+name: hello
+on: push
+jobs:
+   docker-build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Log in to GitHub Container Registry
+          uses: docker/login-action@v3
+          with:
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.REPO_TOKEN }}
+        - name: Build and push Docker image
+          uses: docker/build-push-action@v5
+          with:
+            context: .
+            push: true
+            tags: ${{ steps.meta.outputs.tags }} # Using tags from metadata-action
+            labels: ${{ steps.meta.outputs.labels }} # Using labels from metadata-action
