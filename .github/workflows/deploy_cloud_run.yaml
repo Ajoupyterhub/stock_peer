@@ -23,6 +23,6 @@ jobs:
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2
         with:
-          service: your-cloud-run-service
+          service: stock-peer-00002-h4t
           image: ${{ secrets.DOCKER_USERNAME }}/stock_peer:latest
           region: us-central1 # Replace with your Cloud Run region
